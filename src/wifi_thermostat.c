@@ -64,6 +64,7 @@
 #define DOWN_BUTTON_GPIO 13
 #define RESET_BUTTON_GPIO 0
 #define LED_GPIO 2
+#define INVERT_RELAY_SWITCH 14
 #define QRCODE_VERSION 2
 
 int led_off_value=1; /* global varibale to support LEDs set to 0 where the LED is connected to GND, 1 where +3.3v */
@@ -238,14 +239,14 @@ static void ssd1306_task(void *pvParameters)
                 case 1:
                     sprintf(mode_string, "HEAT");
                     break;
-                case 2:
-                    sprintf(mode_string, "COOL");
-                    break;
-                case 3:
-                    sprintf(mode_string, "AUTO");
-                    break;
-                default:
-                    sprintf(mode_string, "?   ");
+                // case 2:
+                //    sprintf(mode_string, "COOL");
+                //    break;
+                // case 3:
+                //    sprintf(mode_string, "AUTO");
+                //    break;
+                // default:
+                //    sprintf(mode_string, "?   ");
             }
             
             if (ssd1306_draw_string(&display, display_buffer, font_builtin_fonts[FONT_FACE_TERMINUS_BOLD_14X28_ISO8859_1], 5, 2, target_temp_string, OLED_COLOR_WHITE, OLED_COLOR_BLACK) < 1){
